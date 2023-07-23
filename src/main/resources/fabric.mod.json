@@ -1,0 +1,28 @@
+{
+	"schemaVersion": 1,
+	"id": "registry-spammer",
+	"version": "${version}",
+	"name": "Registry Spammer",
+	"description": "Spams the item registry (or maybe others, idk yet) with dummy things to test stuff like load times semi-consistently",
+	"authors": [
+		"rozbrajaczpoziomow"
+	],
+	"contact": {
+		"homepage": "https://tryitands.ee",
+		"sources": "https://youtube.com/watch?v=qWwb8S02f_c"
+	},
+	"license": "Get mental help.",
+	"icon": "assets/registry-spammer/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"mod.rozbrajaczpoziomow.registryspammer.RegistrySpammer"
+		]
+	},
+	"mixins": [],
+	"depends": {
+		"fabricloader": ">=0.14.21",
+		"minecraft": ">=1.20",
+		"java": ">=17"
+	}
+}
