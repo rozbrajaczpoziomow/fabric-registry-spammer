@@ -2,6 +2,7 @@ package mod.rozbrajaczpoziomow.registryspammer;
 
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -16,7 +17,7 @@ import java.util.Scanner;
 
 public class RegistrySpammer implements ModInitializer {
 	protected static final String MODID = "registry-spammer";
-    public static final Logger LOGGER = LoggerFactory.getLogger(MODID);
+	public static final Logger LOGGER = LoggerFactory.getLogger(MODID);
 
 	@Override
 	public void onInitialize() {
@@ -51,8 +52,9 @@ public class RegistrySpammer implements ModInitializer {
 
 	private void register(final int amount) {
 		LOGGER.warn("Adding " + amount + " items");
-		for(int i = 0; i < amount; i++)
-			Registry.register(Registries.ITEM, new Identifier(MODID, "spam_" + intToSomething(i)), new SpamItem(i, amount - 1));
+		for(int i = 0; i < amount; i++) {
+			FuelRegistry.INSTANCE.add(Registry.register(Registries.ITEM, new Identifier(MODID, "spam_" + intToSomething(i)), new SpamItem(i, amount - 1)), (i * 20) % 32767);
+		}
 	}
 
 	private String intToSomething(final int from) {
